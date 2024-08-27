@@ -5,7 +5,7 @@ metadata:
   name: appsconfigurator
   namespace: argocd
 spec:
-  project: argocd-scale
+  project: argocd-talos
   syncPolicy:
     automated:
       prune: false

@@ -15,7 +15,7 @@ spec:
     metadata:
       name: "{{`{{ path.basename }}`}}"
     spec:
-      project: argocd-scale
+      project: argocd-talos
       syncPolicy:
         automated:
           prune: true
