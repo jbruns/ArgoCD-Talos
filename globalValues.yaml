@@ -1,5 +1,5 @@
 global:
-  repo: https://github.com/jbruns/ArgoCD-SCALE.git
+  repo: https://github.com/jbruns/ArgoCD-Talos.git
   branch: main
   domain: wavebe.am
   altDomainHome: bruns.house
@@ -9,14 +9,17 @@ global:
 
   applicationSets:
   - common
-  - media
-  - home
-  - monitoring
+#  - media
+#  - home
+#  - monitoring
     
   storage:
-    pools: 
-      argo-zfspv-fast: luna/argo/pv
-      argo-zfspv-slow: andromeda/argo/pv
+    defaultClass: 
+      name: openebs-localpv-default
+      basePath: /var/mnt/openebs/default
+    additionalClasses:
+      openebs-localpv-nvme: /var/mnt/openebs/nvme
+      openebs-localpv-hdd: /var/mnt/openebs/hdd
 
   metallb:
-    defaultPool: 172.16.20.0-172.16.20.254
+    defaultPool: 172.16.21.0-172.16.21.254

@@ -2,13 +2,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: argocd-scale
+  name: argocd-talos
   namespace: argocd
   # Finalizer that ensures that project is not deleted until it is not referenced by any application
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: ArgoCD on TrueNAS SCALE
+  description: ArgoCD on Talos
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'

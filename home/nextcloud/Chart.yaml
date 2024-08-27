@@ -1,7 +1,0 @@
-name: nextcloud
-apiVersion: v2
-version: 1.0.0
-dependencies:
-- name: nextcloud
-  repository: https://nextcloud.github.io/helm/
-  version: 5.5.2
