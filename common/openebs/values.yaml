@@ -11,3 +11,8 @@ openebs:
     replicated:
       mayastor:
         enabled: false
+
+  zfs-localpv:
+    zfsNode:
+      encrKeysDir: /var/mnt/openebs
+  
