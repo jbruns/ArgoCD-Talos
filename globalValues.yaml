@@ -22,4 +22,4 @@ global:
       openebs-localpv-hdd: /var/mnt/openebs/hdd
 
   metallb:
-    defaultPool: 172.16.21.0-172.16.21.254
+    defaultPool: 172.16.21.1-172.16.21.20
