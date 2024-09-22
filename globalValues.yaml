@@ -9,7 +9,7 @@ global:
 
   applicationSets:
   - common
-#  - media
+  - media
 #  - home
 #  - monitoring
     
