@@ -10,7 +10,6 @@ controllers:
           repository: deluan/navidrome
           tag: 0.53.2
           pullPolicy: IfNotPresent
-
         env:
           ND_ENABLETRANSCODINGCONFIG: "true"
           ND_DATAFOLDER: /config
@@ -75,6 +74,8 @@ persistence:
       - path: /music
 
 defaultPodOptions:
+  annotations:
+    backup.velero.io/backup-volumes: local-storage
   securityContext:
     runAsUser: 1001
     runAsGroup: 1002
