@@ -4,5 +4,7 @@ mariadb:
   auth:
     existingSecret: mariadb-auth
   primary:
+    podAnnotations:
+      backup.velero.io/backup-volumes: data-mariadb-0
     persistence:
       storageClass: openebs-localpv-nvme

@@ -75,7 +75,7 @@ persistence:
 
 defaultPodOptions:
   annotations:
-    backup.velero.io/backup-volumes: local-storage
+    backup.velero.io/backup-volumes: navidrome-config
   securityContext:
     runAsUser: 1001
     runAsGroup: 1002

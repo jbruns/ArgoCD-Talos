@@ -4,5 +4,7 @@ redis:
   auth:
     enabled: false
   master:
+    podAnnotations:
+      backup.velero.io/backup-volumes: redis-data-redis-master-0
     persistence:
       storageClass: openebs-localpv-nvme
