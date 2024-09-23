@@ -15,13 +15,6 @@ velero:
       volumeMounts:
         - mountPath: /target
           name: plugins
-    # https://github.com/openebs/zfs-localpv/blob/master/docs/backup-restore.md
-    - name: openebs-velero-plugin
-      image: openebs/velero-plugin:3.6.0
-      imagePullPolicy: IfNotPresent
-      volumeMounts:
-        - mountPath: /target
-          name: plugins
   configuration:
     backupStorageLocation:
       - name: default
@@ -31,24 +24,14 @@ velero:
           region: minio
           s3ForcePathStyle: true
           s3Url: https://minio.wavebe.am
-    volumeSnapshotLocation:
-      - name: default
-        provider: openebs.io/cstor-blockstore
-        config:
-          namespace: argo-common
-          provider: aws
-          bucket: catzbvmegafa
-          region: minio
-          s3ForcePathStyle: true
-          s3Url: https://minio.wavebe.am
-          # https://github.com/openebs/velero-plugin/pull/55
-          multiPartChunkSize: 100Mi
-          restApiTimeout: 90s
-    resticTimeout: 4h
 
   credentials:
     existingSecret: velero-s3-key
 
+  snapshotsEnabled: false
+  
+  deployNodeAgent: true
+    
 #  schedules:
 #    daily:
       # Tell ArgoCD not to automatically prune/delete backups
