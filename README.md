@@ -1,9 +1,11 @@
-<img src="https://raw.githubusercontent.com/jbruns/ArgoCD-SCALE/main/logo.png" align="left" width="144px" height="144px"/>
+**Archived**: after iXsystems [shifted gears](https://forums.truenas.com/t/the-future-of-electric-eel-and-apps/5409) from including k3s in TrueNAS SCALE, to just making it a Docker[-compose] host, this became an attempt to migrate my existing configuration and services stack over to [Talos Linux](https://www.talos.dev/), running in a VM on the SCALE host. *This worked,* in sort of a proof-of-concept way; the biggest technical blocker was probably lack of a stable/straightforward CSI for my use case, but overall it kind of ventured outside of one of the original principles: "just enough Kubernetes".
 
-# "HomeProd" - GitOps on Kubernetes
-_Maximum availability, minimum hassle. Managed by ArgoCD, maintained by Renovate._
+So at that point, it seemed unwise to continue given the extra complication, and instead I decided to accept the change to Docker Compose. 
+
+If any of this repo's content is helpful to you, great! If you are looking for Helm charts to run on top of Talos and other Kubernetes distributions, see [TrueCharts](https://truecharts.org).  
+
 <br>
-<br>
+
 ## :book:&nbsp; Overview
 Kubernetes? At Home?
 <br>
@@ -14,8 +16,6 @@ What you see here, then, is the authoritative source for my cluster's configurat
 
 - [ArgoCD](https://argoproj.github.io/cd/) keeps watch over this Git repository, and makes changes accordingly to the cluster based on commits. 
 - Bitnami [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) is what's used to encrypt secrets in a way that allows them to be kept in a public repo.
-
-Currently I only have a single node, which is running [TrueNAS SCALE](https://www.truenas.com). k3s comes as part of the distribution, so it takes very little effort to fully integrate GitOps principles into it.
 
 ## :robot:&nbsp; Automation
 
